@@ -13,7 +13,7 @@ public:
             if(s.empty()){
                 ans[i%n] = -1;
             }else{
-                ans[i%n] = nums[s.top()];
+                ans[i%n] = nums[s.top()]; 
             }
             s.push(i%n);
         }
