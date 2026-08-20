@@ -5,13 +5,14 @@ public:
 
         vector<int> left(n, 0);
         vector<int> right(n, 0);
+
         stack<int> s;
-        //for right smaller element
+
+        // right smaller element
         for (int i = n - 1; i >= 0; i--) {
             while (s.size() > 0 && height[s.top()] >= height[i]) {
                 s.pop();
             }
-
             if (s.empty()) {
                 right[i] = n;
             } else {
@@ -19,11 +20,11 @@ public:
             }
             s.push(i);
         }
-        // make the stack empty
-        while(!s.empty()){
+        // empty the stack
+        while (!s.empty()) {
             s.pop();
         }
-        // for left smaller element
+        // left smaller elements
         for (int i = 0; i < n; i++) {
             while (s.size() > 0 && height[s.top()] >= height[i]) {
                 s.pop();
@@ -36,12 +37,11 @@ public:
             s.push(i);
         }
         int ans = 0;
-        for(int i=0; i<n; i++){
+        for (int i = 0; i < n; i++) {
             int width = right[i] - left[i] - 1;
-            int current_area = height[i] * width;
-            ans = max(ans, current_area);
+            int current = height[i] * width;
+            ans = max(ans, current);
         }
-
         return ans;
     }
 };
