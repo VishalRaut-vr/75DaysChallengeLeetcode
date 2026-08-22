@@ -9,12 +9,12 @@ public:
                 digits[i]++;
                 return digits;
             }
-            digits[i] = 0;
+            digits[i] = 0; 
         }
 
-        //if we still here, it means all elements were 9
-        vector<int> result(n+1, 0);
-        result[0] = 1;
-        return result;
+        //all elements were 9
+        vector<int> ans(n+1, 0);
+        ans[0] = 1;
+        return ans;
     }
 };
